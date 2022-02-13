@@ -31,6 +31,10 @@ body {
     margin-bottom: 24px;
 }
 
+.header {
+    position: relative;
+}
+
 .header__nav_list {
     display: flex;
     align-items: center;
@@ -83,6 +87,7 @@ body {
 
 .recent_posts__container .container__item .item__img {
     width: 160px;
+    height: 140px;
     margin-right: 20px;
 }
 
@@ -130,7 +135,7 @@ body {
 .instagram_shots__content {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 9px;
 }
 
 .instagram_shots__content .content__img {
@@ -175,4 +180,165 @@ body {
     line-height: 26px;
     color: #B9B9B9;
     margin-top: 34px;
+    text-align: center;
+}
+
+
+
+#menu__toggle {
+    opacity: 0;
+}
+
+.menu__btn {
+    display: none; /* используем flex для центрирования содержимого */
+    align-items: center;  /* центрируем содержимое кнопки */
+    cursor: pointer;
+    position: relative;
+    width: 44px;
+    height: 37px;
+    background-color: #000;
+    margin: 0 0 23px auto;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 17px;
+    height: 2px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .2s;
+}
+.menu__btn > span::before {
+    content: '';
+    top: -4px;
+}
+.menu__btn > span::after {
+    content: '';
+    top: 6px;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .header__nav_list {
+        gap: 34px;
+        height: 55px;
+
+        margin: 23px 0 28px 0;
+    }
+
+    .recent_posts {
+        padding-top: 56px;
+        padding-bottom: 60px;
+    }
+
+    .recent_posts__container {
+        flex-direction: column;
+    }
+
+    .recent_posts__container .container__item {
+        flex: 0 100%;
+    }
+
+
+    .instagram_shots__content .content__img {
+        width: 250px;
+    }
+
+    .instagram_shots__content .content__img:last-child {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 320px;
+    }
+
+    .header__nav_list {
+        display: none;
+    }
+
+    .menu__btn {
+        display: flex;
+    }
+
+    .recent_posts {
+        padding-top: 38px;
+        padding-bottom: 39px;
+    }
+
+    .recent_posts__container {
+        flex-direction: column;
+    }
+
+    .recent_posts__container .container__item {
+        flex: 0 100%;
+        flex-direction: column;
+    }
+
+    .recent_posts__container .container__item .item__content .content__title {
+        margin-top: 11px;
+    }
+
+    .recent_posts__container .container__item .item__content .content__description {
+        display: none;
+    }
+
+
+    .instagram_shots__content .content__img {
+        width: 100%;
+    }
+
+    .instagram_shots__content .content__img:not(:first-child) {
+        display: none;
+    }
+
+    .instagram_shots__header .header__button {
+        display: none;
+    }
+
+
+    /* контейнер меню */
+    .header__nav_list {
+        display: block;
+        position: absolute;
+        visibility: hidden;
+        top: 57px;
+        right: 0;
+        width: 182px;
+        height: auto;
+        margin: 0;
+        background-color: #F5F5F5;
+    }
+    /* элементы меню */
+    .header__nav_list .nav_list__item {
+        padding: 4px 13px;
+        font-size: 11px;
+        line-height: 22px;
+    }
+    .header__nav_list .nav_list__item:hover {
+        background-color: #E5E5E5;
+    }
+
+    #menu__toggle:checked ~ .menu__btn > span::before {
+        top: 50%;
+        transition: .2s;
+    }
+    #menu__toggle:checked ~ .menu__btn > span::after {
+        top: 50%;
+        transition: .2s;
+    }
+    #menu__toggle:checked ~ .header__nav_list {
+        visibility: visible;
+    }
+
 }
