@@ -53,13 +53,13 @@ body {
     font-size: 11px;
     font-weight: normal;
     letter-spacing: 1.1px;
-    transition: .2s;
+    transition: .2s color;
 
     cursor: pointer;
 }
 
 .header__nav_list .nav_list__item:hover {
-    transition: .2s;
+    transition: .2s color;
     color: #57A4A4;
 }
 
